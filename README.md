@@ -1,5 +1,5 @@
 # panlex\_client 
-Simply Ruby client for the [public API](http://dev.panlex.org/api/) of the [Panlex Database](http://panlex.org).
+Simple Ruby client for the [public API](http://dev.panlex.org/api/) of the [Panlex Database](http://panlex.org).
 
 ## Usage
 
