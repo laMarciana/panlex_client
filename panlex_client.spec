@@ -9,5 +9,5 @@ Gem::Specification.new do |s|
    s.email = 'marc@lamarciana.com'
    s.files = `git ls-files`.split("\n")
 
-   s.add_development_dependency "rest-client", "~>1.6"
+   s.add_runtime_dependency "rest-client", "~>1.6"
 end
