@@ -3,9 +3,11 @@ Simple Ruby client for the [public API](http://dev.panlex.org/api/) of the [Panl
 
 ## Usage
 
-Right now, there is just a `PanlexClient` module with only one `query` method which accepts three arguments: the URL parameter, the request body and an optional block to process the response and which accept three arguments: response, request and result. This is just a wrapper of [rest-client](https://github.com/rest-client/rest-client) `RestClient.post` method, so you can check there for more documentation.
+Right now, there is just a `PanlexClient` module with only one `query` method which accepts three arguments: the URL parameter, the request body and an optional block to process the response and which accept three arguments: response, request and result.
 
 ```ruby
+require 'panlex_client'
+
 PanlexClient.query 'lv', { :indent => true, :limit => 2 } do |response, request, result|
    response_json = JSON.parse(response)
    if response_json['status'] == 'OK' then
