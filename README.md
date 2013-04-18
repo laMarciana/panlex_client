@@ -18,6 +18,10 @@ end
 
 ```
 
+## Relase Policy
+
+panlex_client follows the principles of [semantic versioning](http://semver.org/). panlex_client is still in an 0.x.y version, so it is not considered stable and anything can change at any moment.
+
 ## LICENSE
 
 Copyright 2013 Marc Busqué - <marc@lamarciana.com>
