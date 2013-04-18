@@ -3,19 +3,19 @@ Simple Ruby client for the [public API](http://dev.panlex.org/api/) of the [Panl
 
 ## Usage
 
-Right now, there is just a `PanlexClient` module with only one `query` method which accepts three arguments: the URL parameter, the request body and an optional block to process the response and which accept three arguments: response, request and result.
+Right now, there is just a `PanlexClient` module with only one `query` method with two arguments: the URL parameter and the request body. It returns PanLex API response parsed to a Hash.
 
 ```ruby
 require 'panlex_client'
 
-PanlexClient.query 'lv', { :indent => true, :limit => 2 } do |response, request, result|
-   response_json = JSON.parse(response)
-   if response_json['status'] == 'OK' then
-      response_json['result'].each do |language|
-         puts language.to_s
-      end
-   end
+response = PanlexClient.query 'lv', { :indent => true, :limit => 2 }
+
+if response['status'] == 'OK' then
+  response['result'].each do |language|
+     puts language['tt']
+  end
 end
+
 ```
 
 ## LICENSE
