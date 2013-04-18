@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
    s.name = 'panlex_client'
-   s.version = '0.1.2'
+   s.version = '0.2.0'
    s.summary = 'Client for the PanLex database public API'
    s.description = 'https://github.com/laMarciana/panlex_client/'
    s.license = 'GPL3'
