@@ -8,7 +8,7 @@ module PanlexClient
    # @param param [String] {http://dev.panlex.org/api/#urlparam PanLex API URL parameter}
    # @param body [#to_json] The request body which includes the query parameters. Look at the {http://dev.panlex.org/api/#globalparam global optional parameter} and the specifics for each URL parameter
    # @return [Hash] {http://dev.panlex.org/api/#globalparam PanLex API response} 
-   # @raise [RestClient::ExceptionWithResponse] if there is an error in the response. You can use e.response to access the PanLex API error resonse
+   # @raise [RestClient::ExceptionWithResponse] if there is an error in the response. You can use e.response to access the PanLex API error response
    def self.query(param, body)
      begin
        response = RestClient.post API_URL+param, body.to_json, { 'content-type' => :json, :accept => :json, 'accept-encoding' => 'gzip' }
