@@ -1,21 +1,22 @@
 # panlex\_client 
-Simple Ruby client for the [public API](http://dev.panlex.org/api/) of the [Panlex Database](http://panlex.org).
+
+Simple Ruby client for the [public API](http://dev.panlex.org/api/) of the [PanLex Database](http://panlex.org). It uses [rest-client](https://github.com/adamwiggins/rest-client) gem.
 
 ## Usage
 
-Right now, there is just a `PanlexClient` module with only one `query` method with two arguments: the URL parameter and the request body. It returns PanLex API response parsed to a Hash.
+Right now, there is just a `PanlexClient` module with only one `query` method wich takes two arguments: the URL parameter and the request body. It returns PanLex API response parsed to a Hash or raises an exception with the response in it.
 
 ```ruby
 require 'panlex_client'
 
-response = PanlexClient.query 'lv', { :indent => true, :limit => 2 }
-
-if response['status'] == 'OK' then
+begin
+  response = PanlexClient.query 'lv', { :indent => true, :limit => 2 }
   response['result'].each do |language|
-     puts language['tt']
+    puts language['tt']
   end
+rescue RestClient::ExceptionWithResponse => e
+  puts JSON.parse(e.response)['message']
 end
-
 ```
 
 ## Relase Policy
