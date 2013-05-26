@@ -9,6 +9,11 @@ module PanlexClient
    # @param body [#to_json] The request body which includes the query parameters. Look at the {http://dev.panlex.org/api/#globalparam global optional parameter} and the specifics for each URL parameter
    # @return [Hash] {http://dev.panlex.org/api/#globalparam PanLex API response} 
    def self.query(param, body)
-      RestClient.post API_URL+param, body.to_json, { 'content-type' => :json, :accept => :json, 'accept-encoding' => 'gzip' }
+     begin
+       response = RestClient.post API_URL+param, body.to_json, { 'content-type' => :json, :accept => :json, 'accept-encoding' => 'gzip' }
+       JSON.parse(response)
+     rescue RestClient::ExceptionWithResponse => e
+       raise e
+     end
    end
 end
