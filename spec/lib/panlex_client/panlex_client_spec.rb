@@ -8,5 +8,11 @@ describe PanlexClient do
         response.code.should eql 200
       end
     end
+
+    context "when the request is not successfully" do
+      it "should raise an exception with the response" do
+        expect { PanlexClient.query 'foo', {} }.to raise_error RestClient::ExceptionWithResponse
+      end
+    end
   end
 end
