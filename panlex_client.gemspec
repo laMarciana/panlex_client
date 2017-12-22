@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
    s.description = 'https://github.com/laMarciana/panlex_client/'
    s.license = 'GPL3'
    s.homepage = 'https://github.com/laMarciana/panlex_client/'
-   s.authors = ['Marc Busqué']
+   s.authors = ['Marc Busque']
    s.email = 'marc@lamarciana.com'
    s.files = `git ls-files`.split("\n")
 
